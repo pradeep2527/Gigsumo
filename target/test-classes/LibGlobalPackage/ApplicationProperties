@@ -1,0 +1,15 @@
+A=Freelancer;
+B="Recruiter";
+C="BenchsalesRecruiter";
+D="JobSeeker";
+E="MTA";
+
+
+a=Client;
+f=SystemsIntegrator;
+b=PrimeVendor;
+c=StaffingAgency;
+d=Vendor;
+e=Supplier;
+
+	
