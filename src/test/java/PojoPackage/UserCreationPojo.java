@@ -140,8 +140,15 @@ public class UserCreationPojo extends BaseClass {
 	public WebElement getClickSubmit() {
 		return clickSubmit;
 	}
+	
+	@FindBy(xpath="(//button[text()='SUBMIT'])[1]")
+	private WebElement clickSubmitBtn;
 
 	
+	public WebElement getClickSubmitBtn() {
+		return clickSubmitBtn;
+	}
+
 	@FindBy(xpath="//label[text()=' Job Seeker ']")
 	private WebElement clickJobSeeker;
 
@@ -230,7 +237,7 @@ public class UserCreationPojo extends BaseClass {
 		return clickSupplier;
 	}
 	
-	@FindBy(xpath="//button[text()='SUBMIT']")
+	@FindBy(xpath="//button[text()='Submit']")
 	private WebElement ClickUserSubmit;
 	
 	public WebElement getClickUserSubmit() {
@@ -253,6 +260,8 @@ public class UserCreationPojo extends BaseClass {
 	
 	//CONNECTIONS
 	
+	
+
 	@FindBy(xpath="//input[@formcontrolname='serachData']")
 	private WebElement FillGlobalSearchdata;
 

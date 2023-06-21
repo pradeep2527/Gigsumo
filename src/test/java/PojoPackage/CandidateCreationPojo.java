@@ -11,6 +11,22 @@ public class CandidateCreationPojo extends BaseClass {
 	public CandidateCreationPojo() {
 		PageFactory.initElements(driver, this);
 	}
+	
+	
+	@FindBy(xpath="//span[text()='Create']")
+    private WebElement ClickPlusCreate;
+
+    public WebElement getClickPlusCreate() {
+        return ClickPlusCreate;
+    }
+
+    @FindBy(xpath="//span[text()='Create a Candidate']")
+    private WebElement ClickPluseCreateCandidate;
+
+    public WebElement getClickPluseCreateCandidate() {
+        return ClickPluseCreateCandidate;
+    }
+	
 	  @FindBy(xpath="//div[@title='Create Candidates']")
 	  private WebElement ClickCreatecandidate;
 	  
@@ -214,5 +230,154 @@ public class CandidateCreationPojo extends BaseClass {
 			public WebElement getClickCreditAlert() {
 				return ClickCreditAlert;
 			}
+		
+            
+            
+            
+            //VIEW, EDIT, UPGRADE CANDIDATE, DOWNGRAGE CANDIDATE
+			
+			@FindBy(xpath="//a[text()=' Candidates ']")
+			private WebElement ClickCandidate;
+
+            public WebElement getClickCandidate() {
+				return ClickCandidate;
+			}
+
+
+			@FindBy(xpath="(//a[@id='button-animated'])[1]")
+            private WebElement ClickThreeDot;
+
+            public WebElement getClickThreeDot() {
+				return ClickThreeDot;
+			}
+
+
+			@FindBy(xpath="(//a[text()=' View '])[1]")
+            private WebElement ClickView;
+
+ 
+
+            public WebElement getClickView() {
+                return ClickView;
+            }
+
+            @FindBy(xpath="//div[@class='edit-candidate-job-pencil ng-star-inserted']")
+            private WebElement ClickViewEdit;
+
+ 
+
+            public WebElement getClickViewEdit() {
+                return ClickViewEdit;
+            }
+
+            @FindBy(xpath="//button[text()='Update']")
+            private WebElement ClickCandidateUpdate;
+
+ 
+
+            public WebElement getClickCandidateUpdate() {
+                return ClickCandidateUpdate;
+            }
+
+            @FindBy(xpath="(//a[text()=' Upgrade Candidate '])[1]")
+            private WebElement ClickUpgradeCandidate;
+
+ 
+
+            public WebElement getClickUpgradeCandidate() {
+                return ClickUpgradeCandidate;
+            }
+
+            @FindBy(xpath="//button[text()='Yes']")
+            private WebElement ClickCandidateUpgradeYes;
+
+ 
+
+            public WebElement getClickCandidateUpgradeYes() {
+                return ClickCandidateUpgradeYes;
+            }
+
+            @FindBy(xpath="//button[text()='No']")
+            private WebElement ClickCandidateUpgradeNo;
+
+ 
+
+            public WebElement getClickCandidateUpgradeNo() {
+                return ClickCandidateUpgradeNo;
+            }
+
+            @FindBy(xpath=" (//a[text()=' Downgrade Candidate '])[1]")
+            private WebElement ClickDowngradCandidate;
+
+			public WebElement getClickDowngradCandidate() {
+				return ClickDowngradCandidate;
+			}
+			
+			
+			
+			//AVILABLE, UNAVAILABLE, AWAITING POST, DRAFT,DEACTIVATE
+			 
+			@FindBy(xpath="(//button[text()=' Available'])[1]")
+			private WebElement ClickAvailable;
+
+			public WebElement getClickAvailable() {
+				return ClickAvailable;
+			}
+			
+			@FindBy(xpath="(//a[text()=' UnAvailable '])[1]")
+			private WebElement clickListUnavailable;
+
+			public WebElement getClickListUnavailable() {
+				return clickListUnavailable;
+			}
+			
+			@FindBy(xpath="(//button[@class='btn btn-link ng-star-inserted collapsed'])[2]")
+			private WebElement ClickCandidateStatus;
+
+			public WebElement getClickCandidateStatus() {
+				return ClickCandidateStatus;
+			}
+			
+			@FindBy(xpath="//p[text()=' Unavailable']")
+			private WebElement ClickStatusUnavilable;
+
+			public WebElement getClickStatusUnavilable() {
+				return ClickStatusUnavilable;
+			}
+			
+			@FindBy(xpath="(//button[text()='UnAvailable'])[1]")
+			private WebElement ClickUnavilable;
+
+			public WebElement getClickUnavilable() {
+				return ClickUnavilable;
+			}
+			
+			@FindBy(xpath="(//a[text()=' Available '])[1]")
+			private WebElement ClickListAvilable;
+
+			public WebElement getClickListAvilable() {
+				return ClickListAvilable;
+			}
+			
+			@FindBy(xpath="(//button[text()='Make Available'])[1]")
+			private WebElement ClickMakeAvilable;
+
+			public WebElement getClickMakeAvilable() {
+				return ClickMakeAvilable;
+			}
+			
+			@FindBy(xpath="(//button[text()='Awaiting Post'])[1]")
+			private WebElement ClickAwaitingPost;
+
+			public WebElement getClickAwaitingPost() {
+				return ClickAwaitingPost;
+			}
+			
+			//CANDIDATE DETAILS
+			
+			
+			
+			
+			
 
 }

@@ -5,6 +5,8 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -290,7 +292,7 @@ public class BaseClass {
 
 	public static String getCurrentDate() {
 
-		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 		Date date = new Date();
 		String date1 = dateFormat.format(date);
 		return date1;
@@ -301,17 +303,43 @@ public class BaseClass {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
-	   disableImageChrome(options);
+		disableImageChrome(options);
 		driver = new ChromeDriver(options);
-		}
+	}
 
 	public static ChromeOptions disableImageChrome(ChromeOptions options) {
-		HashMap<String, Object> images=new HashMap<String, Object>();
+		HashMap<String, Object> images = new HashMap<String, Object>();
 		images.put("image", 2);
-	    HashMap<String, Object> profile=new HashMap<String, Object>();
-		profile.put("profile",images);
+		HashMap<String, Object> profile = new HashMap<String, Object>();
+		profile.put("profile", images);
 		options.setExperimentalOption("prefs", profile);
-	    return options;
-	    }
+		return options;
+	}
+
+	public static void toSelectAndFill(WebElement element, String data) throws AWTException {
+
+		Actions b = new Actions(driver);
+
+		b.doubleClick(element).perform();
+
+		selectAllText();
+
+		element.sendKeys(data);
+
+	}
+
+	public static String plusday(int daysCount) {
+
+		LocalDate date = LocalDate.now();
+
+		LocalDate day = date.plusDays(daysCount);
+
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+
+		String formattedDate = day.format(dateTimeFormatter);
+
+		return formattedDate;
+
+	}
 
 }

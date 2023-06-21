@@ -77,22 +77,58 @@ public class JobCreationPojo extends BaseClass {
 	}
 
 
-	@FindBy(xpath="//input[@id='7']")
-	private WebElement ClickJobEffectivefor;
+	@FindBy(xpath="//input[@placeholder='Effective From ']")
+	private WebElement ClickJobEffectiveFrom;
+
 	
 	public WebElement getClickJobEffectivefor() {
-		return ClickJobEffectivefor;
+		return ClickJobEffectiveFrom;
 	}
 
+	@FindBy(xpath="//input[@id='7']")
+	private WebElement ClickJob7days;
+	
+	public WebElement getClickJob7days() {
+		return ClickJob7days;
+	}
 
-	@FindBy(xpath="//input[@placeholder='Effective From ']")
+	@FindBy(xpath="//input[@id='Custom']")
+	private WebElement ClickJobCustom;
+
+
+	public WebElement getClickJobCustom() {
+		return ClickJobCustom;
+	}
+	
+	@FindBy(xpath="//input[@id='15']")
+	private WebElement ClickJob15days;
+
+	public WebElement getClickJob15days() {
+		return ClickJob15days;
+	}
+	
+	@FindBy(xpath="//input[@id='30']")
+	private WebElement ClickJob30days;
+
+	public WebElement getClickJob30days() {
+		return ClickJob30days;
+	}
+
+	@FindBy(xpath="//input[@formcontrolname='effectiveDate']")
 	private WebElement FillJobEffecticefrom;
 
 
 	public WebElement getFillJobEffecticefrom() {
 		return FillJobEffecticefrom;
 	}
+	
+	@FindBy(xpath="//input[@formcontrolname='effectiveUntil']")
+	private WebElement FillJobEffectiveUntil;
 
+
+	public WebElement getFillJobEffectiveUntil() {
+		return FillJobEffectiveUntil;
+	}
 
 	@FindBy(xpath="(//input[@role='combobox'])[4]")
 	private WebElement FillJobPrimary;
@@ -245,6 +281,7 @@ public class JobCreationPojo extends BaseClass {
 	public WebElement getClickJobDraft() {
 		return ClickJobDraft;
 	}
+	
 	
 	@FindBy(xpath="//button[text()='Cancel']")
 	private WebElement ClickJobCancel;
@@ -422,7 +459,7 @@ public class JobCreationPojo extends BaseClass {
 		return ClickFilterJobInactive;
 	}
 	
-	@FindBy(xpath="(//button[@data-toggle=\"dropdown\"])[1]")
+	@FindBy(xpath="(//button[@data-toggle='dropdown'])[1]")
 	private WebElement ClickStatusInactive;
 
 
@@ -430,8 +467,11 @@ public class JobCreationPojo extends BaseClass {
 		return ClickStatusInactive;
 	}
 	
+	
 	//JOB CARD DETAILS
 	
+	
+
 	@FindBy(xpath="(//div[@class='panel-body pad-cus p-mb-6 hover-border ng-star-inserted'])[1]")
 	private WebElement ClickJobcard;
 

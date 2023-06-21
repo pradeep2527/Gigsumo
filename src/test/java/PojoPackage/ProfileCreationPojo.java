@@ -200,6 +200,13 @@ public class ProfileCreationPojo extends BaseClass {
 		return Submit;
 	}
 	
+	@FindBy(xpath="//button[text()='Submit']")
+	private WebElement ClickCurrentOrgSubmit;
+	
+	public WebElement getClickCurrentOrgSubmit() {
+		return ClickCurrentOrgSubmit;
+	}
+
 	@FindBy(xpath="(//span[text()='×'])[2]")
 	private WebElement ClickCloseX;
 

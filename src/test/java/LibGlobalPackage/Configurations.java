@@ -3,15 +3,15 @@ package LibGlobalPackage;
 public class Configurations {
 	
 	
-	 public static String mail = "rec@pr.com";
+	 public static String mail = "recruiter@car.com";
 	 
 	 public static String userRoll ="Recruiter";
 	 
-	 public static String firstName ="VAISHU";
+	 public static String firstName ="JOE";
 	 
-	 public static String lastName ="RECRUITER";
+	 public static String lastName ="RUSSO";
 
-	 public static String clientType ="SystemsIntegrator";
+	 public static String clientType ="Client";
 	
 
 	 

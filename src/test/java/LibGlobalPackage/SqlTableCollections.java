@@ -30,6 +30,7 @@ public static String getActivationToken(String mail) throws SQLException {
 		return token;
 		
 		
+		
 	}
 
 }

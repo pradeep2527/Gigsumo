@@ -5,7 +5,7 @@
     <classes>
       <class name="RunnerPackage.RunnerClass">
         <methods>
-          <include name="UserCreation"/>
+          <include name="CandidateCard"/>
         </methods>
       </class> <!-- RunnerPackage.RunnerClass -->
     </classes>
