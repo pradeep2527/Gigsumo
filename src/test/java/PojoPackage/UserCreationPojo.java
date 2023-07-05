@@ -269,13 +269,20 @@ public class UserCreationPojo extends BaseClass {
 		return FillGlobalSearchdata;
 	}
 	
-	@FindBy(xpath="//span[text()='SHAN MTA']")
+	@FindBy(xpath="//span[@class='d']")
 	private WebElement ClickUser;
 
 	public WebElement getClickUser() {
 		return ClickUser;
 	}
 	
+	@FindBy(xpath="(//h6[text()='View All >>>'])[1]")
+	private WebElement ClickGlbViewAll;
+
+	public WebElement getClickGlbViewAll() {
+		return ClickGlbViewAll;
+	}
+
 	@FindBy(xpath="(//button[text()=' Connect '])[1]")
 	private WebElement ClickUserConnection;
 
@@ -283,13 +290,21 @@ public class UserCreationPojo extends BaseClass {
 		return ClickUserConnection;
 	}
 	
-	@FindBy(xpath="//img[@aria-controls='basic-link-dropdown']")
+	@FindBy(xpath="//button[text()='Connect ']")
+	private WebElement ClickConnect;
+	
+	public WebElement getClickConnect() {
+		return ClickConnect;
+	}
+
+	@FindBy(xpath="(//img[@class='img-circle ng-star-inserted'])[1]")
 	private WebElement ClickUserProfile;
 	
+
 	public WebElement getClickUserProfile() {
 		return ClickUserProfile;
 	}
-	
+
 	@FindBy(xpath="//a[text()='LogOut']")
 	private WebElement ClickLogout;
 
@@ -310,6 +325,20 @@ public class UserCreationPojo extends BaseClass {
 
 	public WebElement getClickUserAccept() {
 		return ClickUserAccept;
+	}
+	
+	@FindBy(xpath="//span[text()=' Connection ']")
+	private WebElement ClickConnections;
+
+	public WebElement getClickConnections() {
+		return ClickConnections;
+	}
+	
+	@FindBy(xpath=" (//a[@class='headertext'])[1]")
+	private WebElement ClickHome;
+
+	public WebElement getClickHome() {
+		return ClickHome;
 	}
 
 

@@ -315,7 +315,7 @@ public class JobCreationPojo extends BaseClass {
 	}
 	
 	
-	//JOB CARD
+	//JOB CARD VIEW, EDIT, UPGRADE, DOWNGRADE
 	
 	@FindBy(xpath="(//a[@class='headertext'])[2]")
 	private WebElement ClickJob;
@@ -339,7 +339,7 @@ public class JobCreationPojo extends BaseClass {
 		return ClickJobView;
 	}
 
-	@FindBy(xpath="(//li[@role='menuitem'])[2]")
+	@FindBy(xpath="//div[@class='edit-candidate-job-pencil ng-star-inserted']")
 	private WebElement ClickJobEdit;
 
 
@@ -355,6 +355,13 @@ public class JobCreationPojo extends BaseClass {
 		return ClickUpgradeJob;
 	}
 	
+	@FindBy(xpath="//button[text()='Update']")
+	private WebElement ClickUpdateJOb;
+	
+	public WebElement getClickUpdateJOb() {
+		return ClickUpdateJOb;
+	}
+
 	@FindBy(xpath="//button[@class='swal2-confirm btn btn-success']")
 	private WebElement ClickUpgradeYes;
 
@@ -435,14 +442,27 @@ public class JobCreationPojo extends BaseClass {
 		return ClickJobClose;
 	}
 	
+	@FindBy(xpath="(//span[@class='checkmark'])[6]")
+	private WebElement ClickStatusClose;
+	
+	public WebElement getClickStatusClose() {
+		return ClickStatusClose;
+	}
+
 	@FindBy(xpath="//a[@id='FILLED']")
 	private WebElement ClickJobFilled;
-
 
 	public WebElement getClickJobFilled() {
 		return ClickJobFilled;
 	}
 	
+	@FindBy(xpath="(//span[@class='checkmark'])[5]")
+	private WebElement ClickStatusFilled;
+	
+	public WebElement getClickStatusFilled() {
+		return ClickStatusFilled;
+	}
+
 	@FindBy(xpath="//a[@id='INACTIVE']")
 	private WebElement ClickJobInactive;
 
@@ -520,6 +540,8 @@ public class JobCreationPojo extends BaseClass {
 		return ClickPeopleLiked;
 	}
 
+	
+	
 	//JOB APPLICANTS
 	
 	@FindBy(xpath="(//span[text()=' Applied '])[1]")

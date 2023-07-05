@@ -111,7 +111,7 @@ public class ProfileCreationPojo extends BaseClass {
 	}
 	
 	//ABOUT YOURSELF
-	
+//	
 //	@FindBy(xpath="//div[@title='Edit about yourself']")
 //	private WebElement ClickAbutyrs;
 //
@@ -132,7 +132,7 @@ public class ProfileCreationPojo extends BaseClass {
 //	public WebElement getClickSmit() {
 //		return ClickSmit;
 //	}
-//	
+	
 	
 	
 	//WORK EXPERIENCE
@@ -143,7 +143,14 @@ public class ProfileCreationPojo extends BaseClass {
 	public WebElement getClickWorkexperience() {
 		return ClickWorkexperience;
 	}
+	
+	@FindBy(xpath="//span[@class='checkmark']")
+	private WebElement ClickCheckCurrentORG;
 
+
+	public WebElement getClickCheckCurrentORG() {
+		return ClickCheckCurrentORG;
+	}
 
 	@FindBy(xpath="//input[@placeholder='Organization Name']")
 	private WebElement OrganziationName;

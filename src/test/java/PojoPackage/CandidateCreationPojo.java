@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 import LibGlobalPackage.BaseClass;
 
 public class CandidateCreationPojo extends BaseClass {
@@ -73,6 +74,16 @@ public class CandidateCreationPojo extends BaseClass {
 				return Effectivefor;
 			}	
 			
+			@FindBy(xpath="//input[@id='Custom']")
+			private WebElement ClickCandCustom;
+			
+
+
+			public WebElement getClickCandCustom() {
+				return ClickCandCustom;
+			}
+
+
 			@FindBy(xpath="//select[@formcontrolname='availableIn']")
 			private WebElement Avalibility;
 			
@@ -212,10 +223,12 @@ public class CandidateCreationPojo extends BaseClass {
 			@FindBy(xpath="//button[text()='Save as Draft']")
 			private WebElement SaveAsDraft;
 
+				
 			public WebElement getSaveAsDraft() {
 				return SaveAsDraft;
 			}
-			
+
+
 			@FindBy(xpath="//button[text()='Make Available']")
 			private WebElement MakeAvilable;
 
@@ -324,20 +337,31 @@ public class CandidateCreationPojo extends BaseClass {
 				return ClickAvailable;
 			}
 			
-			@FindBy(xpath="(//a[text()=' UnAvailable '])[1]")
-			private WebElement clickListUnavailable;
-
+			@FindBy(xpath="//a[@id='INACTIVE']")
+			private WebElement clickListUnavailable;	
+			
 			public WebElement getClickListUnavailable() {
 				return clickListUnavailable;
 			}
+
+
+			@FindBy(xpath="//b[text()=' Candidate Source']")
+			private WebElement ClickCandidateSorece;
 			
-			@FindBy(xpath="(//button[@class='btn btn-link ng-star-inserted collapsed'])[2]")
+			public WebElement getClickCandidateSorece() {
+				return ClickCandidateSorece;
+			}
+
+
+			@FindBy(xpath=" //b[text()=' Status ']")
 			private WebElement ClickCandidateStatus;
 
+			
 			public WebElement getClickCandidateStatus() {
 				return ClickCandidateStatus;
 			}
-			
+
+
 			@FindBy(xpath="//p[text()=' Unavailable']")
 			private WebElement ClickStatusUnavilable;
 
@@ -359,13 +383,20 @@ public class CandidateCreationPojo extends BaseClass {
 				return ClickListAvilable;
 			}
 			
-			@FindBy(xpath="(//button[text()='Make Available'])[1]")
+			@FindBy(xpath="//button[text()='Make Available']")
 			private WebElement ClickMakeAvilable;
 
 			public WebElement getClickMakeAvilable() {
 				return ClickMakeAvilable;
 			}
 			
+			@FindBy(xpath="//a[@id='ACTIVE']")
+			private WebElement ClickUnavilableActive;
+			public WebElement getClickUnavilableActive() {
+				return ClickUnavilableActive;
+			}
+
+
 			@FindBy(xpath="(//button[text()='Awaiting Post'])[1]")
 			private WebElement ClickAwaitingPost;
 
@@ -373,11 +404,170 @@ public class CandidateCreationPojo extends BaseClass {
 				return ClickAwaitingPost;
 			}
 			
-			//CANDIDATE DETAILS
+			//DEACTIVATE
+			
+			@FindBy(xpath="(//input[@id='0'])[1]")
+			private WebElement clickCandiateCustom;
+
+			public WebElement getClickCandiateCustom() {
+				return clickCandiateCustom;
+			}
+			
+			@FindBy(xpath="(//input[@id='7'])[1]")
+			private WebElement ClickCandidate7;
+
+			public WebElement getClickCandidate7() {
+				return ClickCandidate7;
+			}
+			
+			@FindBy(xpath="(//input[@id='15'])[1]")
+			private WebElement ClickCandidate15;
+
+			public WebElement getClickCandidate15() {
+				return ClickCandidate15;
+			}
+			
+			@FindBy(xpath="(//input[@id='30'])[1]")
+			private WebElement ClickCandiate30;
+
+			public WebElement getClickCandiate30() {
+				return ClickCandiate30;
+			}
+			
+			@FindBy(xpath="(//input[@id='candCheckBox'])[1]")
+			private WebElement ClickCandCheckBox;
+
+			public WebElement getClickCandCheckBox() {
+				return ClickCandCheckBox;
+			}
+			
+			@FindBy(xpath="//button[text()=' Activate ']")
+			private WebElement ClickCandActivate;
+
+			public WebElement getClickCandActivate() {
+				return ClickCandActivate;
+			}
+			
+			@FindBy(xpath="//button[text()=' Deactivated']")
+			private WebElement ClickCandDeactivated;
+
+			public WebElement getClickCandDeactivated() {
+				return ClickCandDeactivated;
+			}
+			
+		
+			
+			//CANDIDATE  DETAILS
+			
+			@FindBy(xpath="(//div[@class='col-md-9 cardListItm '])[1]")
+			private WebElement ClickCandCard;
+			
+			public WebElement getClickCandCard() {
+				return ClickCandCard;
+			}
+
+
+			@FindBy(xpath="//li[@title='Candidate Details']")
+			private WebElement ClickCandiateDetails;
+
+			public WebElement getClickCandiateDetails() {
+				return ClickCandiateDetails;
+			}
+			
+			@FindBy(xpath="//li[@title='Jobs Applied']")
+			private WebElement ClickJobsApplited;
+
+			public WebElement getClickJobsApplited() {
+				return ClickJobsApplited;
+			}
+			
+			@FindBy(xpath="//a[text()='Job Applied Filter '] ")
+			private WebElement ClickJobAppliedFilter;
+			
+			public WebElement getClickJobAppliedFilter() {
+				return ClickJobAppliedFilter;
+			}
+			
+			@FindBy(xpath="//span[@class='ng-arrow-wrapper']")
+			private WebElement ClickFilterArrow;
+
+
+			public WebElement getClickFilterArrow() {
+				return ClickFilterArrow;
+			}
+
+
+			@FindBy(xpath="//a[text()=' People Viewed ']")
+			private WebElement ClickPeopleViewed;
+
+			public WebElement getClickPeopleViewed() {
+				return ClickPeopleViewed;
+			}
+			
+			@FindBy(xpath="//a[text()=' Resume Requests ']")
+			private WebElement ClickResumeRequests;
+
+			public WebElement getClickResumeRequests() {
+				return ClickResumeRequests;
+			}
+			
+			@FindBy(xpath="//a[text()=' Job Invites ']")
+			private WebElement ClickJobInvites;
+
+			public WebElement getClickJobInvites() {
+				return ClickJobInvites;
+			}
+			
+			@FindBy(xpath="(//button[@class='btn btn-primary status-action-btn fRCard dropdown-toggle'])[1]")
+			private WebElement ClickCandInvited;
+
+			public WebElement getClickCandInvited() {
+				return ClickCandInvited;
+			}
+			
+			@FindBy(xpath="//a[text()=' Submit Invitation ']")
+			private WebElement ClickSubmitInvitation;
+			
+			public WebElement getClickSubmitInvitation() {
+				return ClickSubmitInvitation;
+			}
+
+			@FindBy(xpath="//input[@id='termsCheckBoxs']")
+			private WebElement ClickCandTermsBox;
+
+			public WebElement getClickCandTermsBox() {
+				return ClickCandTermsBox;
+			}
+			
+			@FindBy(xpath="//button[text()=' Submit ']")
+			private WebElement ClickCandSubmit;
+
+			public WebElement getClickCandSubmit() {
+				return ClickCandSubmit;
+			}
+			
+			@FindBy(xpath="//a[text()=' Reject Invitation ']")
+			private WebElement ClickRejectInviation;
+
+			public WebElement getClickRejectInviation() {
+				return ClickRejectInviation;
+			}
+			
+			@FindBy(xpath="(//div[@id='jb_dpDown'])[1]")
+			private WebElement ClickCandRejected;
 			
 			
-			
-			
+			public WebElement getClickCandRejected() {
+				return ClickCandRejected;
+			}
+
+
+			@FindBy(xpath="//a[text()='People Liked ']")
+			private WebElement ClickPeopelLiked;
+
+			public WebElement getClickPeopelLiked() {
+				return ClickPeopelLiked;
+			}
 			
 
 }

@@ -2,7 +2,6 @@ package RunnerPackage;
 
 import java.awt.AWTException;
 import java.sql.SQLException;
-
 import org.testng.annotations.Test;
 import LibGlobalPackage.BaseClass;
 import LibGlobalPackage.Configurations;
@@ -15,9 +14,8 @@ import PojoPackage.UserCreationPojo;
 
 public class RunnerClass extends BaseClass {
 	
-	//USER CREATION
-	
-	@Test(enabled =false)
+	      //USER CREATION	
+	@Test(enabled =false, priority=1 )
 	private void UserCreation() throws InterruptedException, SQLException{
 		
 		openChrome();
@@ -44,6 +42,7 @@ public class RunnerClass extends BaseClass {
 		String s=Configurations.userRoll;
 		
 		if(s=="Freelancer") 
+			
 		{
 		Thread.sleep(4000);
 		toClickButton(a.getClickTechnologyJob());
@@ -54,7 +53,7 @@ public class RunnerClass extends BaseClass {
 	}
 		
 		if(s=="JobSeeker") {
-			
+			toThreadSleep(2000);
 			toClickButton(a.getClickTechnologyJob());
 			Thread.sleep(2000);
 			toClickButton(a.getClickNext());
@@ -63,12 +62,13 @@ public class RunnerClass extends BaseClass {
 		}
 		
 
-		if(s=="BenchsalesRecruiter") {
-			
+		if(s=="BenchSalesRecruiter") {
+			toThreadSleep(2000);
 			toClickButton(a.getClickTechnologyJob());
 			Thread.sleep(2000);
 			toClickButton(a.getClickNext());
 			Thread.sleep(3000);
+			scrollDown(a.getClickBenchSalesRecruiter());
 			toClickButton(a.getClickBenchSalesRecruiter());
 			Thread.sleep(4000);
 			toClickButton(a.getClickNextClienttypes());	
@@ -104,12 +104,14 @@ public class RunnerClass extends BaseClass {
 			}
 			
 			else if (c1=="Supplier") {
+			scrollDown(a.getClickSupplier());
 			Thread.sleep(3000);	
 			toClickButton(a.getClickSupplier());
+			scrollUp(a.getClickSupplier());
 			}}
 			
 			if(s=="MTA") {
-				
+				toThreadSleep(2000);
 				toClickButton(a.getClickTechnologyJob());
 				Thread.sleep(2000);
 				toClickButton(a.getClickNext());
@@ -166,6 +168,8 @@ public class RunnerClass extends BaseClass {
 				toClickButton(a.getClickFindCandidates());
 				toClickButton(a.getClickNext());
 				Thread.sleep(3000);
+//				scrollDown(a.getClickRecruiter());
+				toThreadSleep(2000);
 				toClickButton(a.getClickRecruiter());	
 				toClickButton(a.getClickNextClienttypes());
 				Thread.sleep(3000);
@@ -194,21 +198,24 @@ public class RunnerClass extends BaseClass {
 				}
 				
 				else if (c3=="Vendor") {
+				scrollDown(a.getClickVendor());
 			    Thread.sleep(3000);			
 			    toClickButton(a.getClickVendor());
+			    toThreadSleep(3000);
+			    scrollUp(a.getClickVendor());
 				}}	
-			if(s=="Recruiter" || s=="MTA" || s=="BenchsalesRecruiter") {
+			if(s=="Recruiter" || s=="MTA" || s=="BenchSalesRecruiter") {
 				Thread.sleep(5000);
 				toClickButton(a.getClickSubmitBtn());
 			}else {
 		Thread.sleep(5000);
 		toClickButton(a.getClickUserSubmit());
+		closeBrowser();
 			}
 	}
 	
- 	//CURRENT ORGANIZATION
-	
- 	@Test(enabled=false)
+          //CURRENT ORGANIZATION JOB CREATION
+ 	@Test(enabled=false, priority=2)
  	private void CurrentOrganization() throws InterruptedException, AWTException {
      	openChrome();
     	driver.manage().window().maximize();
@@ -216,7 +223,7 @@ public class RunnerClass extends BaseClass {
     	Thread.sleep(3000);
     	UserCreationPojo a = new UserCreationPojo();
     	ProfileCreationPojo p=new ProfileCreationPojo();
-    	toFillTextbox(a.getEnterUsername(), "recruiter@arp.com");
+    	toFillTextbox(a.getEnterUsername(), "benchrecuritters@del.com");
     	toFillTextbox(a.getEnterPassword(),"Pass@123");
     	Thread.sleep(2000);
     	toClickButton(a.getClickLoginbtn());
@@ -224,8 +231,8 @@ public class RunnerClass extends BaseClass {
     	toClickButton(a.getClickPlusEycon());
     	toThreadSleep(2000);
         toClickButton(a.getClickCrtjobEycon());
-		Thread.sleep(2000);
-		toFillTextbox(p.getOrganziationName(), "MAHI ORG");
+		Thread.sleep(4000);
+		toFillTextbox(p.getOrganziationName(), "WCC ORG");
 		pressEnterKey();
 		Thread.sleep(3000);
 		toSelectVisibleText(p.getOrganizationType(), " Systems Integrator");
@@ -246,136 +253,40 @@ public class RunnerClass extends BaseClass {
 		Thread.sleep(4000);
 		toClickButton(p.getClickCurrentOrgSubmit());
 		//toClickButton(p.getClickCloseX());
-
-
-	
-	}
-	
-	//CONNECTIONS
-	
-	@Test(enabled=false)
-	private void connections() throws InterruptedException {
-		openChrome();
-		driver.manage().window().maximize();
-		driver.get("http://135.181.42.100/gigsumo/#/login");
-		Thread.sleep(3000);
-		UserCreationPojo a = new UserCreationPojo();
-		toFillTextbox(a.getEnterUsername(), "recruiter@sumo.com");
-		toFillTextbox(a.getEnterPassword(),"Pass@123");
-		Thread.sleep(2000);
-		toClickButton(a.getClickLoginbtn());
-		Thread.sleep(5000);
-		toFillTextbox(a.getFillGlobalSearchdata(), "SCOTT STEIN");
 		Thread.sleep(6000);
-		toClickButton(a.getClickUser());
-		Thread.sleep(3000);
-		toClickButton(a.getClickUserConnection());
-		Thread.sleep(3000);
-		toClickButton(a.getClickUserProfile());
-		Thread.sleep(3000);
-		toClickButton(a.getClickLogout());
-		Thread.sleep(3000);
-		toFillTextbox(a.getEnterUsername(), "benchrec@sumo.com");
-		toFillTextbox(a.getEnterPassword(),"Pass@123");
-		Thread.sleep(3000);
-		toClickButton(a.getClickLoginbtn());
-		Thread.sleep(5000);
-		toClickButton(a.getClickNotification());
-		Thread.sleep(3000);
-		toClickButton(a.getClickUserAccept());
-		Thread.sleep(3000);
-		toClickButton(a.getClickUserProfile());
-		Thread.sleep(3000);
-		toClickButton(a.getClickLogout());
-		
-	}
-
-	
-	//PERSIONAL DETAILS
-	
-	@Test(enabled =false)
-	 private void PersionalDetails() throws InterruptedException, AWTException {
-		openChrome();
-		driver.manage().window().maximize();
-		driver.get("http://135.181.42.100/gigsumo/#/login");
-		Thread.sleep(3000);
-		UserCreationPojo a = new UserCreationPojo();
-		ProfileCreationPojo p=new ProfileCreationPojo();
-		toFillTextbox(a.getEnterUsername(), "recruiter@sumo.com");
-		toFillTextbox(a.getEnterPassword(),"Pass@123");
-		toClickButton(a.getClickLoginbtn());
-		Thread.sleep(4000);
-		//toClickButton(p.getClickOrgName());
-		toClickButton(p.getClickCompleteYourProfile());
-		Thread.sleep(3000);
-    	toClickButton(p.getClickpersonalDet());
-		Thread.sleep(3000);
-		toFillTextbox(p.getFillPN(), "9988776644");
-		toSelectVisibleText(p.getSelectCtry(), " United States");
-		Thread.sleep(3000);
-		toFillTextbox(p.getFillZipCd(), "12345");
-		Thread.sleep(2000);
-		scrollDown(p.getFillZipCd());
-		Thread.sleep(3000);
-		toClickButton(p.getClickSub());
-		Thread.sleep(4000);
-	}
-	
-	
-    //JOB CREATION
-	
-	@Test(enabled =false)
-	private void JobCreation() throws InterruptedException, AWTException{
-		
-		openChrome();
-		driver.manage().window().maximize();
-		driver.get("http://135.181.42.100/gigsumo/#/login");
-		Thread.sleep(3000);
-		UserCreationPojo a = new UserCreationPojo();
-		toFillTextbox(a.getEnterUsername(), "recruiter@sumo.com");
-		toFillTextbox(a.getEnterPassword(), "Pass@123");
-		toClickButton(a.getClickLoginbtn());
-		Thread.sleep(6000);
-		JobCreationPojo j = new JobCreationPojo();
-		toClickButton(j.getClickpostCreatJob());	
+		JobCreationPojo j = new JobCreationPojo();	
 //		Thread.sleep(3000);
 //		toSelectVisibleText(j.getSelectTimeZoneCountry(), " United States");
 //		.sleep(2000);
 //		toSelectVisibleText(j.getSelecttimeZone(), " America/New_York");
 //		Thread.sleep(2000);
 //		toClickButton(j.getClickTimeZoneSubmit());
-		Thread.sleep(8000);
-		toSelectVisibleText(j.getSelectClientType(), " Systems Integrator");
-		toFillTextbox(j.getFillClientName(), "Rohith");
-		Thread.sleep(3000);
-		toSelectVisibleText(j.getSelectJobEngagement(), " Contract to Hire");
-		Thread.sleep(3000);
-	    toFillTextbox(j.getFillJobTitle(), "Computer Vision Engineer");
-		Thread.sleep(4000);
+		Thread.sleep(6000);
+		toSelectVisibleText(j.getSelectClientType(), " Client");
+		toFillTextbox(j.getFillClientName(), "EMAR");
+		Thread.sleep(2000);
+		toSelectVisibleText(j.getSelectJobEngagement(), " W2 - Contract");
+		Thread.sleep(2000);
+	    toFillTextbox(j.getFillJobTitle(), "BI Architect");
+		Thread.sleep(2000);
 		pressEnterKey();
 		Thread.sleep(2000);
 //   	toClickButton(j.getClickJob7days());
 //   	toClickButton(j.getClickJob15days());
 //   	toClickButton(j.getClickJob30days());
    	    toClickButton(j.getClickJobCustom());
-    	Thread.sleep(2000);
-		String nextday=plusday(1);
-		String nexttwoday=plusday(2);
-//		toFillTextbox(j.getFillJobEffecticefrom(), getCurrentDate());
-		toSelectAndFill(j.getFillJobEffecticefrom(), nextday);
-		toSelectAndFill(j.getFillJobEffectiveUntil(), nexttwoday);
-		Thread.sleep(3000);
-		toFillTextbox(j.getFillJobPrimary(), "Business Analyst");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		toFillTextbox(j.getFillJobPrimary(), "Data Analyst");
+		Thread.sleep(2000);
 		pressEnterKey();
 		Thread.sleep(2000);
 		toClickButton(j.getFillSecondary());
-		toFillTextbox(j.getFillSecondary(), "Integration Architectures");
-		Thread.sleep(3000);
+		toFillTextbox(j.getFillSecondary(), "Java Technology");
+		Thread.sleep(2000);
 		pressEnterKey();
 		toClickButton(j.getSelectJobCountry());
 		toSelectVisibleText(j.getSelectJobCountry(), " United States");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		toSelectVisibleText(j.getSelectJobState(), "New York ");
 		toFillTextbox(j.getEnterJobCity(), "Albany");
 		toFillTextbox(j.getFillJobZipcode(), "12345");
@@ -399,18 +310,214 @@ public class RunnerClass extends BaseClass {
 		//toClickButton(j.getClickJobCancel());
 //		toClickButton(j.getClickJobDraft());
 		toClickButton(j.getClickJobPost());
-		//Thread.sleep(3000);
+		Thread.sleep(4000);
 		//toClickButton(j.getClickJobNo());
 //		toClickButton(j.getClickJobYes());	
-//		toClickButton(j.getClickJob());
-//		Thread.sleep(3000);
-//		toClickButton(j.getClickThreeDotOne());
-//		Thread.sleep(4000);
-//		toClickButton(j.getClickJobView());
-//		Thread.sleep(3000);
+		toClickButton(j.getClickJob());
+		Thread.sleep(4000);
+		toClickButton(j.getClickThreeDotOne());
+		Thread.sleep(4000);
+		toClickButton(j.getClickJobView());
+		Thread.sleep(4000);
+		toClickButton(j.getClickJob());
+		
+
 	}
-	    //JOB HOLD, FILED AND CLOSED
 	
+          //CONNECTIONS
+	@Test(enabled=false)
+	private void connections() throws InterruptedException {
+		openChrome();
+		driver.manage().window().maximize();
+		driver.get("http://135.181.42.100/gigsumo/#/login");
+		Thread.sleep(3000);
+		UserCreationPojo a = new UserCreationPojo();
+		toFillTextbox(a.getEnterUsername(), "recruiter@gig.com");
+		toFillTextbox(a.getEnterPassword(),"Pass@123");
+		Thread.sleep(2000);
+		toClickButton(a.getClickLoginbtn());
+		Thread.sleep(5000);
+		toFillTextbox(a.getFillGlobalSearchdata(), "JOE FRANCES");
+		Thread.sleep(4000);
+		toClickButton(a.getClickGlbViewAll());
+//		toClickButton(a.getClickUser());
+		Thread.sleep(3000);
+		toClickButton(a.getClickConnect());
+//		toClickButton(a.getClickUserConnection());
+		Thread.sleep(5000);		
+//		WebElement logo=driver.findElement(By.xpath("(//img[@class='img-circle ng-star-inserted'])[1]"));
+		replaceClick(a.getClickUserProfile());
+		Thread.sleep(3000);
+		toClickButton(a.getClickLogout());
+		Thread.sleep(3000);
+		toFillTextbox(a.getEnterUsername(), "benchrec@gig.com");
+		toFillTextbox(a.getEnterPassword(),"Pass@123");
+		Thread.sleep(3000);
+		toClickButton(a.getClickLoginbtn());
+		Thread.sleep(5000);
+		toClickButton(a.getClickNotification());
+		Thread.sleep(3000);
+		toClickButton(a.getClickUserAccept());
+		Thread.sleep(3000);
+		toClickButton(a.getClickHome());
+		Thread.sleep(3000);
+		toClickButton(a.getClickConnections());
+	
+	}
+
+          //PERSIONAL DETAILS
+	@Test(enabled =false)
+	private void PersionalDetails() throws InterruptedException, AWTException {
+		openChrome();
+		driver.manage().window().maximize();
+		driver.get("http://135.181.42.100/gigsumo/#/login");
+		Thread.sleep(3000);
+		UserCreationPojo a = new UserCreationPojo();
+		ProfileCreationPojo p=new ProfileCreationPojo();
+		toFillTextbox(a.getEnterUsername(), "recruiter@gig.com");
+		toFillTextbox(a.getEnterPassword(),"Pass@123");
+		toClickButton(a.getClickLoginbtn());
+		Thread.sleep(4000);
+		//toClickButton(p.getClickOrgName());
+		toClickButton(p.getClickCompleteYourProfile());
+		Thread.sleep(3000);
+    	toClickButton(p.getClickpersonalDet());
+		Thread.sleep(3000);
+		toFillTextbox(p.getFillPN(), "9988776644");
+		toSelectVisibleText(p.getSelectCtry(), " United States");
+		Thread.sleep(3000);
+		toFillTextbox(p.getFillZipCd(), "12345");
+		Thread.sleep(2000);
+		scrollDown(p.getFillZipCd());
+		Thread.sleep(3000);
+		toClickButton(p.getClickSub());
+		Thread.sleep(4000);
+	}
+	
+          //JOB CREATION
+	@Test(enabled =false)
+	private void JobCreation() throws InterruptedException, AWTException{
+		
+		openChrome();
+		driver.manage().window().maximize();
+		driver.get("http://135.181.42.100/gigsumo/#/login");
+		Thread.sleep(3000);
+		UserCreationPojo a = new UserCreationPojo();
+		toFillTextbox(a.getEnterUsername(), "recruiter@ab.com");
+		toFillTextbox(a.getEnterPassword(), "Pass@123");
+		toClickButton(a.getClickLoginbtn());
+		Thread.sleep(5000);
+		JobCreationPojo j = new JobCreationPojo();
+		toClickButton(j.getClickpostCreatJob());	
+//		Thread.sleep(3000);
+//		toSelectVisibleText(j.getSelectTimeZoneCountry(), " United States");
+//		.sleep(2000);
+//		toSelectVisibleText(j.getSelecttimeZone(), " America/New_York");
+//		Thread.sleep(2000);
+//		toClickButton(j.getClickTimeZoneSubmit());
+		Thread.sleep(6000);
+		toSelectVisibleText(j.getSelectClientType(), " Prime Vendor");
+		toFillTextbox(j.getFillClientName(), "EMA");
+		Thread.sleep(2000);
+		toSelectVisibleText(j.getSelectJobEngagement(), " Internship");
+		Thread.sleep(2000);
+	    toFillTextbox(j.getFillJobTitle(), "Product Manager");
+		Thread.sleep(2000);
+		pressEnterKey();
+		Thread.sleep(2000);
+//   	toClickButton(j.getClickJob7days());
+//   	toClickButton(j.getClickJob15days());
+//   	toClickButton(j.getClickJob30days());
+   	    toClickButton(j.getClickJobCustom());
+//    	Thread.sleep(2000);
+//		String nextday=plusday(1);
+//		String nexttwoday=plusday(2);
+//		toFillTextbox(j.getFillJobEffecticefrom(), getCurrentDate());
+//		toSelectAndFill(j.getFillJobEffecticefrom(), nextday);
+//		toSelectAndFill(j.getFillJobEffectiveUntil(), nexttwoday);
+		Thread.sleep(2000);
+		toFillTextbox(j.getFillJobPrimary(), "Big Data Analytics");
+		Thread.sleep(2000);
+		pressEnterKey();
+		Thread.sleep(2000);
+		toClickButton(j.getFillSecondary());
+		toFillTextbox(j.getFillSecondary(), "Java Fullstack");
+		Thread.sleep(2000);
+		pressEnterKey();
+		toClickButton(j.getSelectJobCountry());
+		toSelectVisibleText(j.getSelectJobCountry(), " United States");
+		Thread.sleep(2000);
+		toSelectVisibleText(j.getSelectJobState(), "New York ");
+		toFillTextbox(j.getEnterJobCity(), "Albany");
+		toFillTextbox(j.getFillJobZipcode(), "12345");
+		Thread.sleep(2000);
+		toSelectVisibleText(j.getSelectJobPayType(), "Monthly");
+		toFillTextbox(j.getFillTragetRate(), "4000");
+		Thread.sleep(2000);
+		toSelectVisibleText(j.getSelectJobDuration(), "2");
+		toSelectVisibleText(j.getSelectJobDurationType(), " Days ");
+		Thread.sleep(2000);
+		toSelectVisibleText(j.getSelectJobExpeFrom(), "3 ");
+		toSelectVisibleText(j.getSelectJobExpto(), "12 ");
+		Thread.sleep(2000);
+		toClickButton(j.getClickJobRemotWrk());
+		toClickButton(j.getClickJobRelocateReq());
+		toClickButton(j.getClickJobSecurityClear());
+		toClickButton(j.getClickJobWorkFrom());
+		toFillTextbox(j.getClickJobDescripction(), "All executing threads share this part of the JVM memory area. Class elements like constant pool, class fields, constructor codes, method codes, etc. Method area can be considered as a part of the heap area but stores per-class data only. ");
+		Thread.sleep(2000);
+		//toClickButton(j.getClickJobClear());
+		//toClickButton(j.getClickJobCancel());
+//		toClickButton(j.getClickJobDraft());
+		toClickButton(j.getClickJobPost());
+//		Thread.sleep(3000);
+//		toClickButton(j.getClickJobNo());
+//		toClickButton(j.getClickJobYes());	
+//		toClickButton(j.getClickJob());
+	
+	}
+	
+	//JOB CARD VIEW, EDIT, UPGRADEJOB, DOWNGRADEJOB
+	@Test(enabled =false)
+	private void JobCardViewEdit() throws InterruptedException {
+		openChrome();
+		driver.manage().window().maximize();
+		driver.get("http://135.181.42.100/gigsumo/#/login");
+		Thread.sleep(3000);
+		UserCreationPojo a = new UserCreationPojo();
+		toFillTextbox(a.getEnterUsername(), "recruiter@ab.com");
+		toFillTextbox(a.getEnterPassword(), "Pass@123");
+		toClickButton(a.getClickLoginbtn());
+		Thread.sleep(4000);
+		JobCreationPojo j = new JobCreationPojo();
+		toClickButton(j.getClickJob());	
+		Thread.sleep(4000);
+		toClickButton(j.getClickThreeDotOne());
+		Thread.sleep(4000);
+		toClickButton(j.getClickJobView());
+		Thread.sleep(4000);
+		toClickButton(j.getClickJobEdit());
+		Thread.sleep(4000);
+	    toClickButton(j.getClickJobCustom());
+	    toThreadSleep(4000);
+	    toClickButton(j.getClickUpdateJOb());
+	    toThreadSleep(4000);
+	    toClickButton(j.getClickThreeDotOne());
+	    toThreadSleep(2000);
+		toClickButton(j.getClickUpgradeJob());
+		toThreadSleep(2000);
+		toClickButton(j.getClickUpgradeYes());
+		Thread.sleep(5000);
+		toClickButton(j.getClickThreeDotOne());
+		toThreadSleep(4000);
+		toClickButton(j.getClickDowngradeJob());
+		toThreadSleep(4000);
+		toClickButton(j.getClickJob());
+
+	}
+	
+	
+          //HOLD, ONHOLD, ACTIVE, IN ACTIVE, CLOSE, FILLED
 	@Test(enabled =false)
 	private void JobHoldAndClosed() throws InterruptedException {
 		openChrome();
@@ -418,12 +525,12 @@ public class RunnerClass extends BaseClass {
 		driver.get("http://135.181.42.100/gigsumo/#/login");
 		Thread.sleep(3000);
 		UserCreationPojo a = new UserCreationPojo();
-		toFillTextbox(a.getEnterUsername(), "recruiter@sumo.com");
+		toFillTextbox(a.getEnterUsername(), "recruiter@ab.com");
 		toFillTextbox(a.getEnterPassword(), "Pass@123");
 		toClickButton(a.getClickLoginbtn());
 		Thread.sleep(3000);
 		JobCreationPojo j = new JobCreationPojo();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		toClickButton(j.getClickJob());
 		Thread.sleep(3000);
 		toClickButton(j.getClickActive1());
@@ -459,17 +566,18 @@ public class RunnerClass extends BaseClass {
 		toClickButton(j.getClickStatusActive());
 		Thread.sleep(7000);
 		toClickButton(j.getClickFormStatusActive());
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		toClickButton(j.getClickJob());
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		toClickButton(j.getClickActive1());
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		toClickButton(j.getClickJobClose());
 		Thread.sleep(4000);
-		scrollDown(j.getClickJobStaus());
-		Thread.sleep(4000);
+//		scrollDown(j.getClickJobStaus());
+//		Thread.sleep(3000);
 		toClickButton(j.getClickJobStaus());
-		toClickButton(j.getClickJobClose());
+		toThreadSleep(2000);
+		toClickButton(j.getClickStatusClose());
 		toThreadSleep(4000);
 		toClickButton(j.getClickJob());
 		Thread.sleep(4000);
@@ -477,52 +585,24 @@ public class RunnerClass extends BaseClass {
 		Thread.sleep(3000);
 		toClickButton(j.getClickJobFilled());
 		Thread.sleep(3000);
-		scrollDown(j.getClickJobStaus());
-		toClickButton(j.getClickJobFilled());
+//		scrollDown(j.getClickJobStaus());
+		toClickButton(j.getClickJobStaus());
+		toThreadSleep(2000);
+		toClickButton(j.getClickStatusFilled());
+		toThreadSleep(4000);
 		toClickButton(j.getClickJob());
 	}
 	
 	
-		
-		//JOB CARD EDIT VIEW UPGRADE DOWNGRADE
-	
-	@Test(enabled =false)
-	private void JobCardViewEdit() throws InterruptedException {
-		openChrome();
-		driver.manage().window().maximize();
-		driver.get("http://135.181.42.100/gigsumo/#/login");
-		Thread.sleep(3000);
-		UserCreationPojo a = new UserCreationPojo();
-		toFillTextbox(a.getEnterUsername(), "shanarec@maven.com");
-		toFillTextbox(a.getEnterPassword(), "Pass@123");
-		toClickButton(a.getClickLoginbtn());
-		Thread.sleep(4000);
-		JobCreationPojo j = new JobCreationPojo();
-		toClickButton(j.getClickJob());	
-		Thread.sleep(4000);
-		toClickButton(j.getClickThreeDotOne());
-		Thread.sleep(4000);
-		toClickButton(j.getClickJobEdit());
-		Thread.sleep(3000);
-		toClickButton(j.getClickUpgradeJob());
-		toClickButton(j.getClickUpgradeYes());
-		Thread.sleep(4000);
-		toClickButton(j.getClickJobView());
-		Thread.sleep(4000);
-		toClickButton(j.getClickDowngradeJob());
-
-	}
-	
-   //JOBCARD DETAILS
-	 
+          //JOBCARD DETAILS 
 	@Test(enabled=false)
-	 private void JobCardDetails() throws InterruptedException {
+	private void JobCardDetails() throws InterruptedException {
 		openChrome();
 		driver.manage().window().maximize();
 		driver.get("http://135.181.42.100/gigsumo/#/login");
 		Thread.sleep(3000);
 		UserCreationPojo a = new UserCreationPojo();
-		toFillTextbox(a.getEnterUsername(), "recruiter@sumo.com");
+		toFillTextbox(a.getEnterUsername(), "recruiter@zee.com");
 		toFillTextbox(a.getEnterPassword(), "Pass@123");
 		toClickButton(a.getClickLoginbtn());
 		Thread.sleep(4000);
@@ -585,16 +665,16 @@ public class RunnerClass extends BaseClass {
 	}
 		
 		
-		
-		@Test(enabled=false)
-		private void ProfileUpdate() throws InterruptedException, AWTException {
+	      //ABOUT YOURSELF, WORK EXPERIENCE, EDUCATION, CERTIFICATIONS, SOCIAL INFLUENCE
+	@Test(enabled=true)
+	private void ProfileUpdate() throws InterruptedException, AWTException {
 			openChrome();
 			driver.manage().window().maximize();
 			driver.get("http://135.181.42.100/gigsumo/#/login");
 			Thread.sleep(3000);
 			UserCreationPojo a = new UserCreationPojo();
 			ProfileCreationPojo p=new ProfileCreationPojo();
-			toFillTextbox(a.getEnterUsername(), "recruiter@sumo.com");
+			toFillTextbox(a.getEnterUsername(), "benchrecruiter@abi.com");
 			toFillTextbox(a.getEnterPassword(),"Pass@123");
 			toClickButton(a.getClickLoginbtn());
 			Thread.sleep(4000);
@@ -613,11 +693,113 @@ public class RunnerClass extends BaseClass {
 		
     	//WORK EXPERIENCE
 		
-    	scrollDown(p.getClickEditAbtYors());
+//    	scrollDown(p.getClickEditAbtYors());
+//		Thread.sleep(3000);
+//      toClickButton(p.getClickWorkexperience());
+//		Thread.sleep(2000);
+//		toFillTextbox(p.getOrganziationName(), "MAHIA ORG");
+//		toThreadSleep(3000);
+//		pressEnterKey();
+//		Thread.sleep(3000);
+//		toClickButton(p.getClickCheckCurrentORG());
+//		toThreadSleep(2000);
+//		toSelectVisibleText(p.getOrganizationType(), " Systems Integrator");
+//		Thread.sleep(3000);
+//	    toFillTextbox(p.getTitle(), "Bench Sales Recruiter ");
+//		pressEnterKey();
+//		Thread.sleep(1000);
+//		toSelectVisibleText(p.getSelectCountry()," United States");
+//		Thread.sleep(2000);
+//		toFillTextbox(p.getZipcode(), "12345");
+//		Thread.sleep(2000);
+//		//JOBSERKER NOT ALLOWED TIME ZONE
+//		toSelectVisibleText(p.getTimeZone(), " America/New_York");
+//		Thread.sleep(2000);
+//		toSelectVisibleText(p.getStartYear(), "2023");
+//		toSelectVisibleText(p.getStartMonth(), "June");
+//		scrollDown(p.getTimeZone());
+//		Thread.sleep(4000);
+//		toClickButton(p.getSubmit());
+//		//toClickButton(p.getClickCloseX());
+		
+		//EDUCATION
+		
 		Thread.sleep(3000);
-        toClickButton(p.getClickWorkexperience());
+		scrollDown(p.getClickWorkexperience());
+		Thread.sleep(3000);
+		toClickButton(p.getClickEducation());
+		Thread.sleep(3000);
+		toFillTextbox(p.getSchoolName(), "ABS ");
+		Thread.sleep(3000);
+		toClickButton(p.getClickCurrentlyPursed());
+		Thread.sleep(3000);
+		toSelectVisibleText(p.getProfileCountry(), " United States ");
+		Thread.sleep(3000);
+		toFillTextbox(p.getZipcode(), "12345");
 		Thread.sleep(2000);
-		toFillTextbox(p.getOrganziationName(), "MAHINDRA ORG");
+		toFillTextbox(p.getDegree(), "BED");
+		toFillTextbox(p.getSpeciality(), "Computer Science");
+		toSelectVisibleText(p.getStartYear(), "2022 ");
+		toSelectVisibleText(p.getStartMonth(), "June ");
+		Thread.sleep(3000);
+		scrollDown(p.getSubmit());
+		toClickButton(p.getSubmit());
+		Thread.sleep(3000);
+		
+		//CERTIFICATIONS	
+		
+    	scrollDown(p.getClickWorkexperience());
+		Thread.sleep(3000);
+		//scrollDown(p.getClickEducation());
+		//Thread.sleep(3000);
+		toClickButton(p.getClickCertifications());
+		Thread.sleep(3000);
+		toFillTextbox(p.getFillCertificationName(), "AIMS");
+		Thread.sleep(2000);
+		toFillTextbox(p.getFillOrganization(), "APPOLLO");
+		toFillTextbox(p.getFillLincenseNo(), "837338346");
+		Thread.sleep(2000);
+		toSelectVisibleText(p.getSelectIssueYear(), "2021 ");
+		Thread.sleep(2000);
+		toSelectVisibleText(p.getSelectIssueMonth(), "June ");
+		Thread.sleep(2000);
+		toSelectVisibleText(p.getSelectEndYear(), "2022 ");
+		Thread.sleep(2000);
+		toSelectVisibleText(p.getSelectEndMonth(), "March ");
+		Thread.sleep(2000);
+		toClickButton(p.getClickCertificateSubmit());
+		Thread.sleep(3000);
+
+		//SOCIAL INFLUENCE
+		
+		toClickButton(p.getClickSocialInfluence());
+		toFillTextbox(p.getFillLinkedin(), "pradI");
+		Thread.sleep(2000);
+		toFillTextbox(p.getFillTwitter(), "pradz");
+		toFillTextbox(p.getFillfacebook(), "pradeep rajendran");
+		Thread.sleep(2000);
+		toClickButton(p.getSocialSubmit());
+	}
+		
+	      //CURRENT ORGANIZATION CANDIDATE CREATION
+	@Test(enabled =false)
+	private void CurrentOrganizationCandidate() throws InterruptedException, AWTException {
+		openChrome();
+		driver.manage().window().maximize();
+		driver.get("http://135.181.42.100/gigsumo/#/login");
+		Thread.sleep(3000);
+		UserCreationPojo a = new UserCreationPojo();
+		ProfileCreationPojo p=new ProfileCreationPojo();
+		toFillTextbox(a.getEnterUsername(), "benchrec@gig.com");
+		toFillTextbox(a.getEnterPassword(), "Pass@123");
+		toClickButton(a.getClickLoginbtn());
+		Thread.sleep(4000);
+		CandidateCreationPojo c = new CandidateCreationPojo();
+		toClickButton(c.getClickPlusCreate());
+		toClickButton(c.getClickPluseCreateCandidate());
+		//toClickButton(c.getClickCreatecandidate());
+		Thread.sleep(6000);
+		toFillTextbox(p.getOrganziationName(), "DP CORE");
 		pressEnterKey();
 		Thread.sleep(3000);
 		toSelectVisibleText(p.getOrganizationType(), " Systems Integrator");
@@ -636,82 +818,62 @@ public class RunnerClass extends BaseClass {
 		toSelectVisibleText(p.getStartMonth(), "June");
 		scrollDown(p.getTimeZone());
 		Thread.sleep(4000);
-		toClickButton(p.getSubmit());
+		toClickButton(p.getClickCurrentOrgSubmit());
 		//toClickButton(p.getClickCloseX());
-		
-		//EDUCATION
-		
-		Thread.sleep(3000);
-		scrollDown(p.getClickWorkexperience());
-		Thread.sleep(3000);
-		toClickButton(p.getClickEducation());
-		Thread.sleep(3000);
-		toFillTextbox(p.getSchoolName(), "wbs ");
-		Thread.sleep(3000);
-		toClickButton(p.getClickCurrentlyPursed());
-		Thread.sleep(3000);
-		toSelectVisibleText(p.getProfileCountry(), " United States ");
-		Thread.sleep(3000);
-		toFillTextbox(p.getZipcode(), "12345");
+		Thread.sleep(6000);
+		toFillTextbox(c.getFirstName(), "DAVID");
+		toFillTextbox(c.getLastName(), "STE");
+		toFillTextbox(c.getPhone(), "6868893534566");
+		toFillTextbox(c.getEmail(), "scott@gig.com");
 		Thread.sleep(2000);
-		toFillTextbox(p.getDegree(), "BE");
-		toFillTextbox(p.getSpeciality(), "Computer Science");
-		toSelectVisibleText(p.getStartYear(), "2022 ");
-		toSelectVisibleText(p.getStartMonth(), "June ");
-		Thread.sleep(3000);
-		scrollDown(p.getSubmit());
-		toClickButton(p.getSubmit());
-		Thread.sleep(3000);
-		
-		//CERTIFICATIONS	
-		
-    	scrollDown(p.getClickWorkexperience());
-		Thread.sleep(3000);
-		//scrollDown(p.getClickEducation());
-		//Thread.sleep(3000);
-		toClickButton(p.getClickCertifications());
-		Thread.sleep(3000);
-		toFillTextbox(p.getFillCertificationName(), "JIS");
+		toFillTextbox(c.getEffectiveFrom(), getCurrentDate());
+		toClickButton(c.getEffectivefor());
+		toSelectVisibleText(c.getAvalibility(), "  Other");
+		toSelectVisibleText(c.getAvilablefor(), " W2 - Contract");
+		Thread.sleep(1000);
+		toFillTextbox(c.getJobTitle(), "Change Management Analyst");
 		Thread.sleep(2000);
-		toFillTextbox(p.getFillOrganization(), "VETTRI");
-		toFillTextbox(p.getFillLincenseNo(), "837338346");
+		pressEnterKey();
+		toSelectVisibleText(c.getTotalExperience(), " 3");
 		Thread.sleep(2000);
-		toSelectVisibleText(p.getSelectIssueYear(), "2021 ");
+//		toSelectVisibleText(c.getCountry(), " United States");
+//		Thread.sleep(2000);
+//		toSelectVisibleText(c.getState(), "New York ");
+//		toFillTextbox(c.getCity(), "Albany");
+//		toFillTextbox(c.getZipcode(), "12345");
+//		Thread.sleep(2000);
+ 		toFillTextbox(c.getPrimarySkills(), "Java Deployment Technologies");
 		Thread.sleep(2000);
-		toSelectVisibleText(p.getSelectIssueMonth(), "June ");
+		pressEnterKey();
+		toClickButton(c.getSecondarySkills());
+		toFillTextbox(c.getSecondarySkills(), "AWS DevOps");
+		Thread.sleep(1000);
+		pressEnterKey();
+		toSelectVisibleText(c.getWorkAuthorization(), "  EAD - H4  ");
 		Thread.sleep(2000);
-		toSelectVisibleText(p.getSelectEndYear(), "2022 ");
+		toSelectVisibleText(c.getPayType(), "Monthly");
+		toFillTextbox(c.getTargetRate(), "4000");
+		Thread.sleep(1000);
+		toClickButton(c.getRemoteWork());
+		toClickButton(c.getWorkFromHome());
+		toFillTextbox(c.getResumeSummary(),
+				"The following table shows the 100 most popular given names for male and female babies born during the last 100 years, 1922-2021. ");
 		Thread.sleep(2000);
-		toSelectVisibleText(p.getSelectEndMonth(), "March ");
-		Thread.sleep(2000);
-		toClickButton(p.getClickCertificateSubmit());
-		Thread.sleep(3000);
-
-		//SOCIAL INFLUENCE
-		
-		toClickButton(p.getClickSocialInfluence());
-		toFillTextbox(p.getFillLinkedin(), "pradeep");
-		Thread.sleep(2000);
-		toFillTextbox(p.getFillTwitter(), "pradz");
-		toFillTextbox(p.getFillfacebook(), "pradeep rajendran");
-		Thread.sleep(2000);
-		toClickButton(p.getSocialSubmit());
+		//toClickButton(c.getClear());
+//		toClickButton(c.getSaveAsDraft());
+		toClickButton(c.getMakeAvilable());
 	}
-		
-		
-    
-		
-		  //CANDIDATE CREATION
-		
-		  @Test(enabled =false)
-		  private void CandidateCreation() throws InterruptedException, AWTException {
+				
+		  //CANDIDATE CREATION	
+	@Test(enabled =false)
+	private void CandidateCreation() throws InterruptedException, AWTException {
 			//openEdge();
 			openChrome();
 			driver.manage().window().maximize();
 			driver.get("http://135.181.42.100/gigsumo/#/login");
 			Thread.sleep(3000);
 			UserCreationPojo a = new UserCreationPojo();
-			toFillTextbox(a.getEnterUsername(), "benchrec@sumo.com");
+			toFillTextbox(a.getEnterUsername(), "benchrec@vr.com");
 			toFillTextbox(a.getEnterPassword(), "Pass@123");
 			toClickButton(a.getClickLoginbtn());
 			Thread.sleep(4000);
@@ -720,13 +882,15 @@ public class RunnerClass extends BaseClass {
 			toClickButton(c.getClickPluseCreateCandidate());
 			//toClickButton(c.getClickCreatecandidate());
 			Thread.sleep(5000);
-			toFillTextbox(c.getFirstName(), "SCOTT");
-			toFillTextbox(c.getLastName(), "STEIN");
+			toFillTextbox(c.getFirstName(), "BRAIN");
+			toFillTextbox(c.getLastName(), "MELISSA");
 			toFillTextbox(c.getPhone(), "6868893534566");
 			toFillTextbox(c.getEmail(), "scott@gig.com");
-			Thread.sleep(2000);
-			toFillTextbox(c.getEffectiveFrom(), getCurrentDate());
-			toClickButton(c.getEffectivefor());
+			Thread.sleep(3000);
+//			toFillTextbox(c.getEffectiveFrom(), getCurrentDate());
+//			toClickButton(c.getEffectivefor());
+			toClickButton(c.getClickCandCustom());
+			toThreadSleep(3000);
 			toSelectVisibleText(c.getAvalibility(), "  Other");
 			toSelectVisibleText(c.getAvilablefor(), " W2 - Contract");
 			Thread.sleep(1000);
@@ -756,9 +920,10 @@ public class RunnerClass extends BaseClass {
 			toClickButton(c.getRemoteWork());
 			toClickButton(c.getWorkFromHome());
 			toFillTextbox(c.getResumeSummary(),
-					"The following table shows the 100 most popular given names for male and female babies born during the last 100 years, 1922-2021. ");
-			Thread.sleep(2000);
+					"The following table shows the 100 most popular given names for mPlease note that popular names listed below are not necessarily consistently popular in every year. For example, the name James, ranked as the most popular male name over the last 100 years, has been ranked as low as number 19years, has been ranked as low as number 19 ");
+			Thread.sleep(3000);
 			//toClickButton(c.getClear());
+//			toClickButton(c.getSaveAsDraft());
 			toClickButton(c.getMakeAvilable());
      		Thread.sleep(4000);
 //		    toClickButton(c.getClickCreditAlert());
@@ -788,47 +953,111 @@ public class RunnerClass extends BaseClass {
             
 
 		}
-		  
-		  //AVILABLE, UNAVAILABLE, AWAITING POST, DRAFT,DEACTIVATE
-		  
-		  @Test(enabled=true)
-		 private void CandidateCard() throws InterruptedException {
+		  	  
+		   
+          //DEACTIVATE	AVILABLE, UNAVAILABLE	  
+	@Test(enabled=false)
+	private void Deactivate() throws InterruptedException {
 			  openChrome();
 				driver.manage().window().maximize();
 				driver.get("http://135.181.42.100/gigsumo/#/login");
 				Thread.sleep(3000);
 				UserCreationPojo a = new UserCreationPojo();
-				toFillTextbox(a.getEnterUsername(), "pradeepbench@maven.com");
+				toFillTextbox(a.getEnterUsername(), "benchrecruiter@abi.com");
 				toFillTextbox(a.getEnterPassword(), "Pass@123");
 				toClickButton(a.getClickLoginbtn());
 				Thread.sleep(4000);
 				CandidateCreationPojo c = new CandidateCreationPojo();
-//				toClickButton(c.getClickPlusCreate());
-//				toClickButton(c.getClickPluseCreateCandidate());
 				toClickButton(c.getClickCandidate());
+				toThreadSleep(4000);
+				toClickButton(c.getClickCandiateCustom());
+//  		   	toClickButton(c.getClickCandidate7());
+//				toClickButton(c.getClickCandidate15());
+//     			toClickButton(c.getClickCandiate30());
+				toThreadSleep(4000);
+				toClickButton(c.getClickCandCheckBox());
 				toThreadSleep(3000);
+				toClickButton(c.getClickCandActivate());
+				toThreadSleep(4000);
 				toClickButton(c.getClickAvailable());
+				toThreadSleep(4000);
 				toClickButton(c.getClickListUnavailable());
-				Thread.sleep(4000);
-				scrollDown(c.getClickCandidateStatus());
+				Thread.sleep(6000);
+				toClickButton(c.getClickCandidateSorece());
+//				scrollDown(c.getClickCandidateStatus());
 				Thread.sleep(4000);
 				toClickButton(c.getClickCandidateStatus());
-				Thread.sleep(3000);
+				Thread.sleep(4000);
 				toClickButton(c.getClickStatusUnavilable());
 				Thread.sleep(4000);
 				toClickButton(c.getClickUnavilable());
-				toClickButton(c.getClickListAvilable());
-				Thread.sleep(4000);
+				toThreadSleep(5000);
+				toClickButton(c.getClickUnavilableActive());
+				Thread.sleep(5000);
 				toClickButton(c.getClickMakeAvilable());
-				Thread.sleep(4000);
-				toClickButton(c.getClickCandidate());
-				
-				
-				
-				
-			
+				toThreadSleep(4000);
+				toClickButton(c.getClickCandidate());						
+			  
 		}
-		   
-		   
+
+
+	
+	    //CANDIDATE DETAILS
+	@Test(enabled=false)
+	private void CandidateDetails() throws InterruptedException {
+		openChrome();
+		driver.manage().window().maximize();
+		driver.get("http://135.181.42.100/gigsumo/#/login");
+		Thread.sleep(3000);
+		UserCreationPojo a = new UserCreationPojo();
+		toFillTextbox(a.getEnterUsername(), "dhineshkumar.a@mavens-i.com");
+		toFillTextbox(a.getEnterPassword(), "Pass@123");
+		toClickButton(a.getClickLoginbtn());
+		Thread.sleep(4000);
+		CandidateCreationPojo c = new CandidateCreationPojo();
+		toClickButton(c.getClickCandidate());
+		toThreadSleep(3000);
+		toClickButton(c.getClickCandCard());
+		toThreadSleep(3000);
+		toClickButton(c.getClickCandiateDetails());
+		toThreadSleep(3000);
+		toClickButton(c.getClickJobsApplited());
+		toThreadSleep(3000);
+		toClickButton(c.getClickJobAppliedFilter());
+		toThreadSleep(3000);
+		toClickButton(c.getClickFilterArrow());
+		toThreadSleep(3000);
+		toClickButton(c.getClickPeopleViewed());
+		toThreadSleep(3000);
+		toClickButton(c.getClickResumeRequests());
+		toThreadSleep(4000);
+		toClickButton(c.getClickJobInvites());
+		toThreadSleep(4000);
+		toClickButton(c.getClickCandInvited());
+		toThreadSleep(4000);
+		toClickButton(c.getClickSubmitInvitation());
+		toThreadSleep(3000);
+		toClickButton(c.getClickCandTermsBox());
+		toThreadSleep(3000);
+		toClickButton(c.getClickCandSubmit());
+		toThreadSleep(4000);
+		toClickButton(c.getClickCandRejected());
+		toThreadSleep(4000);
+		toClickButton(c.getClickRejectInviation());
+		toThreadSleep(4000);
+		toClickButton(c.getClickCandRejected());
+		toThreadSleep(4000);
+		toClickButton(c.getClickSubmitInvitation());
+		toThreadSleep(4000);	
+		toClickButton(c.getClickCandTermsBox());
+		toThreadSleep(3000);
+		toClickButton(c.getClickCandSubmit());
+		toThreadSleep(3000);
+		toClickButton(c.getClickPeopelLiked());
+		
+		
+		
+	}
+	
 	
 }

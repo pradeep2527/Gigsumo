@@ -3,19 +3,19 @@ package LibGlobalPackage;
 public class Configurations {
 	
 	
-	 public static String mail = "recruiter@car.com";
+	 public static String mail = "jobseeker@gi.com";
 	 
-	 public static String userRoll ="Recruiter";
+	 public static String userRoll ="JobSeeker";
 	 
-	 public static String firstName ="JOE";
+	 public static String firstName ="JOHN";
 	 
-	 public static String lastName ="RUSSO";
+	 public static String lastName ="WICK";
 
-	 public static String clientType ="Client";
+	 public static String clientType ="Vendor";
 	
 
 	 
-	 
+
 	 
 	
 }
