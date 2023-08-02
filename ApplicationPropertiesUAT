@@ -1,0 +1,4 @@
+BaseURL=https://app-uat.gigsumo.com/#/login
+SignUpURL=https://app-uat.gigsumo.com/#/signUp
+ActiveToken=https://api-uat.gigsumo.com/user/findUserToken/
+SetPassword=https://app-uat.gigsumo.com/#/setPassword?jsr=

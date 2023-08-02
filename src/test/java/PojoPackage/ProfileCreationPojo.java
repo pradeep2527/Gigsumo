@@ -1,7 +1,4 @@
 package PojoPackage;
-
-import javax.management.loading.PrivateClassLoader;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -109,29 +106,6 @@ public class ProfileCreationPojo extends BaseClass {
 	public WebElement getClickProf() {
 		return ClickProf;
 	}
-	
-	//ABOUT YOURSELF
-//	
-//	@FindBy(xpath="//div[@title='Edit about yourself']")
-//	private WebElement ClickAbutyrs;
-//
-//	public WebElement getClickAbutyrs() {
-//		return ClickAbutyrs;
-//	}
-//	
-//	@FindBy(xpath="//div[@contenteditable='true']")
-//	private WebElement FillAbturSelf;
-//
-//	public WebElement getFillAbturfelf() {
-//		return FillAbturSelf;
-//	}
-//	
-//	@FindBy(xpath="//button[text()=' Submit ']")
-//	private WebElement ClickSmit;
-//
-//	public WebElement getClickSmit() {
-//		return ClickSmit;
-//	}
 	
 	
 	

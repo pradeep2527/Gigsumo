@@ -3,6 +3,10 @@ package LibGlobalPackage;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -13,6 +17,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -341,5 +351,75 @@ public class BaseClass {
 		return formattedDate;
 
 	}
+	
+	// create new Excel Sheet
+    public static void tocreateExcelSheet(String fileName, String sheetName, int rowNo, int cellNo, String value)
+                    throws IOException {
+            File f = new File("D:\\Project\\Gigsumo\\Excel Files\\gs_files.xlsx");
+            FileInputStream fil = new FileInputStream(f);
+            Workbook b = new XSSFWorkbook(fil);
+            Sheet sh = b.createSheet(sheetName);
+            Row r = sh.createRow(rowNo);
+            Cell c = r.createCell(cellNo);
+            c.setCellValue(value);
+            FileOutputStream fo = new FileOutputStream(f);
+            b.write(fo);
+
+    }
+
+    // create new row in old Sheet
+    public static void toCreateNewRow(String fileName, String sheetName, int rowNo, int cellNo, String value)
+                    throws IOException {
+            File f = new File("D:\\Project\\Gigsumo\\Excel Files\\gs_files.xlsx");
+            FileInputStream fil = new FileInputStream(f);
+            Workbook b = new XSSFWorkbook(fil);
+            Sheet sh = b.getSheet(sheetName);
+            Row r = sh.createRow(rowNo);
+            Cell c = r.createCell(cellNo);
+            c.setCellValue(value);
+            FileOutputStream fo = new FileOutputStream(f);
+            b.write(fo);
+
+    }
+
+    // create new cell in old row
+
+    public static void toCreateNewCell(String fileName, String sheetName, int rowNo, int cellNo, String value)
+                    throws IOException {
+            File f = new File("D:\\Project\\Gigsumo\\Excel Files\\gs_files.xlsx");
+            FileInputStream fil = new FileInputStream(f);
+            Workbook b = new XSSFWorkbook(fil);
+            Sheet sh = b.getSheet(sheetName);
+            Row r = sh.getRow(rowNo);
+            Cell c = r.createCell(cellNo);
+            c.setCellValue(value);
+            FileOutputStream fo = new FileOutputStream(f);
+            b.write(fo);
+    }
+
+    public static String toReadDataFromExcel(String sheetName, int rowNo, int cellNo)
+                    throws IOException {
+
+            File f = new File("D:\\Project\\Gigsumo\\Excel Files\\gs_files.xlsx");
+            FileInputStream fin = new FileInputStream(f);
+            Workbook b = new XSSFWorkbook(fin);
+            Sheet sh = b.getSheet(sheetName);
+            Cell c = sh.getRow(rowNo).getCell(cellNo);
+            int type = c.getCellType();
+            String res;
+            if (type == 1) {
+                    res = c.getStringCellValue();
+            } else if (DateUtil.isCellDateFormatted(c)) {
+                    Date da = c.getDateCellValue();
+                    SimpleDateFormat sim = new SimpleDateFormat("dd/MM/yyyy");
+                    res = sim.format(da);
+            } else {
+                    double d = c.getNumericCellValue();
+                    long l = (long) d;
+                    res = String.valueOf(l);
+            }
+            return res;
+
+    }
 
 }

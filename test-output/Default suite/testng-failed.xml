@@ -5,7 +5,7 @@
     <classes>
       <class name="RunnerPackage.RunnerClass">
         <methods>
-          <include name="ProfileUpdate"/>
+          <include name="UserCreation"/>
         </methods>
       </class> <!-- RunnerPackage.RunnerClass -->
     </classes>

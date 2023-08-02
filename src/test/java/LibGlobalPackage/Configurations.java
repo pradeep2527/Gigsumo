@@ -1,21 +1,41 @@
 package LibGlobalPackage;
 
-public class Configurations {
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.support.PageFactory;
+public class Configurations extends BaseClass {
+	public static String host = "ApplicationPropertiesQA";
+	public Configurations() {
+	
+		PageFactory.initElements(driver, this);
+	}	
+	public static  void readbaseUrl(String url) throws IOException {
+	
+		FileReader reader = new FileReader("D:\\Project\\Gigsumo\\"+ toReadDataFromExcel("LOGIN", 1, 1));
+
+        Properties props = new Properties();
+
+        props.load(reader);
+
+        driver.get(props.getProperty(url));
+
+	}
 	
 	
-	 public static String mail = "jobseeker@gi.com";
-	 
-	 public static String userRoll ="JobSeeker";
-	 
-	 public static String firstName ="JOHN";
-	 
-	 public static String lastName ="WICK";
+	public static void readPasswordUrl(String SetPassword, String token) throws FileNotFoundException, IOException {
+		
+		FileReader reader = new FileReader("D:\\Project\\Gigsumo\\"+ toReadDataFromExcel("LOGIN", 1, 1));
 
-	 public static String clientType ="Vendor";
-	
+        Properties props = new Properties();
 
-	 
+        props.load(reader);
+        
+        driver.get(props.getProperty(SetPassword)+ token);
 
-	 
+
+	}
 	
 }

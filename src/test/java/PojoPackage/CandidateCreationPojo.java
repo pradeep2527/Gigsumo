@@ -474,6 +474,56 @@ public class CandidateCreationPojo extends BaseClass {
 				return ClickCandiateDetails;
 			}
 			
+			               //Candidate card details
+			
+			@FindBy(xpath="//i[@class='fa fa-pencil btn btn-xs btn-primary btn-circle icon-plus_data ng-star-inserted']")
+			private WebElement ClickdetailAboutCandidate;
+			
+			public WebElement getClickdetailAboutCandidate() {
+				return ClickdetailAboutCandidate;
+			}
+			
+			@FindBy(xpath="(//div[@class='note-editable'])[1]")
+			private WebElement FillDetailsAbutCandiate;
+
+
+			public WebElement getFillDetailsAbutCandiate() {
+				return FillDetailsAbutCandiate;
+			}
+			
+			@FindBy(xpath="(//button[text()=' Submit '])[1]")
+			private WebElement ClickCanDetailsSubmit;
+
+
+			public WebElement getClickCanDetailsSubmit() {
+				return ClickCanDetailsSubmit;
+			}
+			
+			@FindBy(xpath="(//i[@class='fa fa-plus btn btn-xs btn-primary btn-circle icon-plus_data ng-star-inserted'])[1]")
+			private WebElement ClickCandidateWorkExperience;
+			
+			public WebElement getClickCandidateWorkExperience() {
+				return ClickCandidateWorkExperience;
+			}
+
+
+			@FindBy(xpath="(//i[@class='fa fa-plus btn btn-xs btn-primary btn-circle icon-plus_data ng-star-inserted'])[2]")
+			private WebElement ClickDetailEducationDetails;
+
+
+			public WebElement getClickDetailEducationDetails() {
+				return ClickDetailEducationDetails;
+			}
+			
+			@FindBy(xpath="(//i[@class='fa fa-plus btn btn-xs btn-primary btn-circle icon-plus_data ng-star-inserted'])[3]")
+			private WebElement ClickDetailCertifiction;
+
+
+			public WebElement getClickDetailCertifiction() {
+				return ClickDetailCertifiction;
+			}
+
+
 			@FindBy(xpath="//li[@title='Jobs Applied']")
 			private WebElement ClickJobsApplited;
 
@@ -481,13 +531,14 @@ public class CandidateCreationPojo extends BaseClass {
 				return ClickJobsApplited;
 			}
 			
-			@FindBy(xpath="//a[text()='Job Applied Filter '] ")
+			@FindBy(xpath="//a[text()='Status Filter ']")
 			private WebElement ClickJobAppliedFilter;
 			
 			public WebElement getClickJobAppliedFilter() {
 				return ClickJobAppliedFilter;
 			}
-			
+
+
 			@FindBy(xpath="//span[@class='ng-arrow-wrapper']")
 			private WebElement ClickFilterArrow;
 

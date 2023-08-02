@@ -1,0 +1,3 @@
+BaseURL=https://app-qa.gigsumo.com/#/login
+SignUpURL=https://app-qa.gigsumo.com/#/signUp
+SetPassword=https://app-qa.gigsumo.com/#/setPassword?jsr=

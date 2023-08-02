@@ -7,14 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class SqlTableCollections {
-public static String getActivationToken(String mail) throws SQLException {
+   public static String getActivationToken(String mail) throws SQLException {
+	
 		
+	
+		String url ="jdbc:mysql://gigsumo-qa-new-db.clapfzjxl2oo.us-east-2.rds.amazonaws.com/gigsumo-extension";
 		
-		String url ="jdbc:mysql://162.55.48.199:3306/careonline_portal";
+		String Username="QardSum0";
 		
-		String Username="colqa";
-		
-		String password="Mavens123";
+		String password="Qards$Um0";
 		
 		Connection connection= DriverManager.getConnection(url,Username, password);	
 		
@@ -29,8 +30,8 @@ public static String getActivationToken(String mail) throws SQLException {
 		System.out.println("token-->"+token);
 		return token;
 		
-		
-		
 	}
+		
+	
 
 }

@@ -14,6 +14,15 @@ public class UserCreationPojo extends BaseClass {
 		
 	}
 	
+	
+	@FindBy(xpath="(//div[contains(@data-toggle,'tooltip')])[4]")
+	private WebElement userstatus;
+	
+	public WebElement getUserstatus() {
+		return userstatus;
+	}
+
+
 	@FindBy(xpath="//input[@formcontrolname='username']")
 	private WebElement enterUsername;
 
@@ -282,6 +291,8 @@ public class UserCreationPojo extends BaseClass {
 	public WebElement getClickGlbViewAll() {
 		return ClickGlbViewAll;
 	}
+	
+	
 
 	@FindBy(xpath="(//button[text()=' Connect '])[1]")
 	private WebElement ClickUserConnection;
